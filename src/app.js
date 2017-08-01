@@ -1,4 +1,5 @@
 const angular = require('angular');
+const ngRoute = require('angular-route');
 
 //component imports
 const NavigationComponent = require('./components/navigation');
@@ -15,7 +16,11 @@ const LogoutComponent = require('./components/logout');
 const PostService = require('./services/post.service');
 const AuthService = require('./services/auth.service');
 
-angular.module('bloggo', [])
+// configuration
+const RoutesConfig = require('./config/routes');
+
+angular.module('bloggo', [ ngRoute ])
+      .config(RoutesConfig)
       .component('home', HomeComponent)
       .component('navigation', NavigationComponent)
       .component('login', LoginComponent)

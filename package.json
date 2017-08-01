@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/app.js",
   "dependencies": {
-    "angular": "^1.6.5"
+    "angular": "^1.6.5",
+    "angular-route": "^1.6.5"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
