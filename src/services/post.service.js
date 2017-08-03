@@ -1,5 +1,6 @@
-function PostService(){
-
+const baseUrl = 'https://radiant-temple-22431.herokuapp.com';
+function PostService($http){
+  const postUrl = `${baseUrl}/posts`;
   return {
     get: get,
     getOne: getOne,
@@ -9,23 +10,28 @@ function PostService(){
   }
 
   function get(){
-    console.log('getting all of the posts');
+    return $http.get(postUrl)
+                .then(response => response.data.posts);
   }
   function getOne(postId){
-    console.log('getting one of the posts');
+    const url = `${postUrl}/${postId}`;
+    return $http.get(url)
+                .then(response => response.data.posts[0]);
   }
   function create(post){
-    console.log('creating a post');
+    return $http.post(postUrl, post);
   }
   function update(postId, postUpdates){
-    console.log('updating a post');
+    const url = `${postUrl}/${postId}`;
+    return $http.put(url, postUpdates);
   }
   function deleteOne(postId){
-    console.log('deleting a post');
+    const url = `${postUrl}/${postId}`;
+    return $http.delete(url);
   }
 }
 
-PostService.$inject = []
+PostService.$inject = ['$http']
 
 
 module.exports = PostService;
