@@ -4,7 +4,10 @@ const template = require('./home.html');
 
 const component = {
   controller,
-  template
+  template,
+  bindings: {
+    posts: '<'
+  }
 }
 
 module.exports = component;
